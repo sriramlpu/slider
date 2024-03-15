@@ -14,14 +14,12 @@
         .container {
             position: absolute;
             top: 30%;
-            left: 0;
-            width: 100%; /* Occupy full width */
-            overflow-x: hidden; /* Hide horizontal overflow */
+            left: 30%;
         }
 
         img {
             height: 50vh;
-            width: 33.333%; /* Ensure each image occupies one-third of the container width */
+            width: 40vw;
             position: absolute;
             z-index: 9;
             border: 2px solid gray;
@@ -29,19 +27,16 @@
         }
 
         .c1 {
-            left: 0; /* Position the first image at the left edge */
             transform: translateX(0) scale(1.5);
             z-index: 99;
         }
 
         .c2 {
-            left: 33.333%; /* Position the second image at the center */
-            transform: translateX(-50%) scale(1); /* Adjust translateX to center the image */
+            transform: translateX(-300px) scale(1);
         }
 
         .c3 {
-            left: 66.666%; /* Position the third image at the right edge */
-            transform: translateX(-100%) scale(1); /* Adjust translateX to position the image at the right edge */
+            transform: translateX(300px) scale(1);
         }
 
         .prev,
@@ -67,16 +62,34 @@
         }
 
         @media screen and (max-width: 768px) {
+            .container {
+                top: 20%;
+                left: 20%;
+            }
+
             img {
                 height: 40vh; /* Adjusted image height */
-                width: 50%; /* Adjusted image width */
+                width: 50vw; /* Adjusted image width */
             }
+
+            .c1 {
+            transform: translateX(0) scale(1.5);
+            z-index: 99;
+            }
+
+        .c2 {
+            transform: translateX(-150px) scale(1);
+        }
+
+        .c3 {
+            transform: translateX(150px) scale(1);
+        }
         }
 
         @media screen and (max-width: 576px) {
             .container {
                 position: relative;
-                top: auto;
+                
                 left: auto;
                 width: 100%; /* Adjust container width */
             }
