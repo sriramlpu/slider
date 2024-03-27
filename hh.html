@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            background-color: #f1f1f1;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .fuel-filling-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .fuel-filling-label label {
+            margin-right: 10px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            vertical-align: middle;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .fuel-filling-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .fuel-filling-label label {
+            margin-right: 10px;
+        }
+
+        .input-group {
+    
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+   
+    background-color: #f9f9f9;
+}
+
+.input-label {
+    font-weight: bold;
+    margin-right: 5px;
+    width: 120px; /* Fixed width for labels */
+    background-color: #e0e0e0; /* Background color for labels */
+    padding: 5px;
+    text-align: left; /* Align label text to the right */
+}
+
+.input-field {
+    width: 100; /* Fixed width for input fields */
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.unit-label {
+    margin-left: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+    </style>
+</head>
+
+<body>
+    <form id="myForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+
+        <div class="input-group">
+            <div class="input-container">
+                <label for="close_reading" class="input-label">Close Reading</label>
+                <input type="text" id="close_reading" name="close_reading" class="input-field">
+                <span class="unit-label">mtrs</span>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-container">
+                <label for="Soil" class="input-label">Soil</label>
+                <input type="text" id="Soil" name="Soil" class="input-field">
+                <span class="unit-label">mtrs</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-container">
+                <label for="rock" class="input-label">Rock</label>
+                <input type="text" id="rock" name="rock" class="input-field">
+                <span class="unit-label">mtrs</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-container">
+                <label for="hardrock" class="input-label">Hardrock</label>
+                <input type="text" id="hardrock" name="hardrock" class="input-field">
+                <span class="unit-label">mtrs</span>
+            </div>
+        </div>
+
+
+        <div class="input-group">
+            <div class="input-container">
+                <label for="caging" class="input-label">Caging</label>
+                <input type="text" id="caging" name="caging" class="input-field">
+                <span class="unit-label">mtrs</span>
+            </div>
+        </div>
+
+
+        <div class="input-group">
+            <div class="input-container">
+                <label for="concrete_sup" class="input-label">Concrete Sup</label>
+                <input type="text" id="concrete_sup" name="concrete_sup" class="input-field">
+                <span class="unit-label">mtrs</span>
+            </div>
+        </div>
+
+        <div class="fuel-filling-label">
+            <label>Fuel Filling:</label>
+            <label class="switch">
+                <input type="checkbox" name="fuel_filling" value="yes">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <script>
+        $(document).ready(function() {
+            // Example: Disable form submission if the "Fuel Filling" checkbox is not checked
+            $('#myForm').submit(function(event) {
+                if (!$('input[name="fuel_filling"]').is(':checked')) {
+                    event.preventDefault(); // Prevent form submission
+                    alert('Please check the "Fuel Filling" checkbox before submitting the form.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
